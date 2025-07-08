@@ -8,7 +8,7 @@ function BookList({ isHomePagePreview=false,  searchQuery = ''}) { // Menerima p
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  
+
   useEffect(() => {
     const fetchBooks = async () => {
       setLoading(true);
@@ -66,14 +66,14 @@ function BookList({ isHomePagePreview=false,  searchQuery = ''}) { // Menerima p
       ) : (
         <div className="book-cards-container">
           {booksToDisplay.map(book => (
-            <BookCard 
-              key={book.id} 
+            <BookCard
+              key={book.id}
               book={{
                 id: book.id,
                 title: book.title,
                 author: book.author,
-                coverUrl: book.cover_link 
-              }} 
+                coverUrl: book.cover_link
+              }}
             />
           ))}
         </div>

@@ -16,11 +16,11 @@ const AddBookPage = () => {
   // Setiap elemen akan menjadi objek: { id: null, page_number_start, page_number_end, file_url }
   const [pageLink, setPageLinks] = useState([
     { id: null, page_number_start: 1, page_number_end: 10, file_url: '' }
-  ]); 
+  ]);
 
   // State untuk pesan feedback kepada pengguna (sukses atau error)
   const [feedbackMessage, setFeedbackMessage] = useState('');
-  const [isSuccess, setIsSuccess] = useState(false); 
+  const [isSuccess, setIsSuccess] = useState(false);
 
   // Handler untuk memperbarui state bookData saat input form berubah
   const handleBookDataChange = (e) => {
@@ -34,10 +34,10 @@ const AddBookPage = () => {
   // Handler untuk memperbarui link halaman spesifik dalam array pageLinks
   const handlePageLinkChange = (index, e) => {
     const { name, value } = e.target;
-    const newPageLink = [...pageLink]; 
+    const newPageLink = [...pageLink];
     // Update properti yang sesuai (file_url, page_number_start, page_number_end)
-    newPageLink[index] = { ...newPageLink[index], [name]: value }; 
-    setPageLinks(newPageLink); 
+    newPageLink[index] = { ...newPageLink[index], [name]: value };
+    setPageLinks(newPageLink);
   };
 
   // Handler untuk menambahkan input link halaman baru ke formulir
@@ -49,7 +49,7 @@ const AddBookPage = () => {
     setPageLinks((prevLinks) => [
       ...prevLinks,
       { id: null, page_number_start: newStart, page_number_end: newEnd, file_url: '' }
-    ]); 
+    ]);
   };
 
   // Handler untuk menghapus input link halaman dari formulir
@@ -59,14 +59,14 @@ const AddBookPage = () => {
 
   // --- FUNGSI SUBMIT UNTUK MENAMBAH BUKU KE BACKEND ---
   const handleSubmit = async (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
 
     setFeedbackMessage('');
     setIsSuccess(false);
 
     if (!bookData.title || !bookData.author || !bookData.description) {
       setFeedbackMessage('Judul, Penulis, dan Deskripsi tidak boleh kosong.');
-      return; 
+      return;
     }
 
     const filteredPageLinks = pageLink.filter(link => link.file_url.trim() !== '');
@@ -88,7 +88,7 @@ const AddBookPage = () => {
     console.log('Data yang akan dikirim ke Django:', dataToSubmit);
 
     try {
-      const response = await fetch('http://127.0.0.1:8000/api/books/', { // <-- URL API POST Buku
+      const response = await fetch('${API_BASE_URL}/api/books/', { // <-- URL API POST Buku
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

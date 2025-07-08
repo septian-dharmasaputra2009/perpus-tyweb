@@ -17,7 +17,7 @@ const BookDetailPage = () => {
       setError(null);
       try {
         // Panggilan API ke Django untuk mengambil detail buku berdasarkan ID
-        const response = await fetch(`http://127.0.0.1:8000/api/books/${id}/`);
+        const response = await fetch(`${API_BASE_URL}/api/books/${id}/`);
 
         if (!response.ok) {
           if (response.status === 404) {
@@ -51,23 +51,23 @@ const BookDetailPage = () => {
     const sortedPageLinks = [...pageLinks].sort((a, b) => a.page_number_start - b.page_number_start);
     const grouped = [];
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    const firstActualPage = sortedPageLinks[0].page_number_start; 
-    const lastActualPage = sortedPageLinks[sortedPageLinks.length - 1].page_number_start; 
+    const firstActualPage = sortedPageLinks[0].page_number_start;
+    const lastActualPage = sortedPageLinks[sortedPageLinks.length - 1].page_number_start;
 
     // Iterasi melalui setiap 10 halaman konseptual
     let currentGroupStart = 1; // Mulai dari halaman konseptual 1
 
-    while (currentGroupStart <= lastActualPage + 9) { 
+    while (currentGroupStart <= lastActualPage + 9) {
         const currentGroupEnd = currentGroupStart + 9;
 
-        const firstLinkInThisGroup = sortedPageLinks.find(link => 
+        const firstLinkInThisGroup = sortedPageLinks.find(link =>
             link.page_number_start >= currentGroupStart && link.page_number_start <= currentGroupEnd
         );
 
         if (firstLinkInThisGroup) {
             grouped.push({
-                start: firstLinkInThisGroup.page_number_start, 
-                end: currentGroupEnd, 
+                start: firstLinkInThisGroup.page_number_start,
+                end: currentGroupEnd,
                 label: `Halaman ${currentGroupStart}-${currentGroupEnd}`,
             });
         }
@@ -96,7 +96,7 @@ const BookDetailPage = () => {
     );
   }
 
-  if (!book) { 
+  if (!book) {
     return (
       <div className="book-detail-page">
         <p className="no-books-message">Buku tidak ditemukan.</p>

@@ -22,12 +22,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'default-insecure-key-for-dev-only') 
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'default-insecure-key-for-dev-only')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DJANGO_DEBUG', 'False').lower() == 'true'
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'septiandharmasaputrasolichin.pythonanywhere.com']
 
 
 # Application definition
@@ -58,10 +58,20 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'tywebs_backend.urls'
 
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/5.2/howto/static-files/
+
+STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, '../../backend/static')
+
+# Default primary key field type
+# https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
+STATICFILES_DIRS = [os.path.join(BASE_DIR, '../../frontend/tyweb/build/static'),os.path.join(BASE_DIR, '../../frontend/tyweb/build'),]
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates'), STATIC_ROOT],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -117,22 +127,13 @@ USE_I18N = True
 
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.2/howto/static-files/
-
-STATIC_URL = 'static/'
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000", # Izinkan React berjalan di port ini
     "http://127.0.0.1:3000",
     # Jika Anda deploy frontend ke domain lain, tambahkan di sini juga
-    # "https://yourfrontenddomain.com",
+    #,
 ]
 
 REST_FRAMEWORK = {
