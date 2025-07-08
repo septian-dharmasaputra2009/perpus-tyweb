@@ -1,0 +1,88 @@
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px; /* Lebar switch */
+  height: 34px; /* Tinggi switch */
+  margin: 0; /* Pastikan tidak ada margin default yang mengganggu */
+  cursor: pointer;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--toggle-slider-bg-off); /* Warna dari tema */
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: var(--toggle-handle-bg); /* Warna dari tema */
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: var(--toggle-slider-bg-on); /* Warna dari tema saat ON */
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px var(--toggle-slider-bg-on);
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* Ikon matahari dan bulan */
+.icon-light, .icon-dark {
+  position: absolute;
+  font-size: 1.2em;
+  line-height: 34px;
+  pointer-events: none;
+  transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+}
+
+.icon-light {
+  color: var(--toggle-icon-light); /* Warna dari tema */
+  left: 8px;
+  opacity: 1;
+}
+
+.icon-dark {
+  color: var(--toggle-icon-dark); /* Warna dari tema */
+  right: -5px;
+  opacity: 0;
+}
+
+input:checked ~ .icon-light {
+  opacity: 0;
+}
+
+input:checked ~ .icon-dark {
+  opacity: 1;
+}

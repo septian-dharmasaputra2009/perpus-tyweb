@@ -1,0 +1,95 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -300px; /* Sembunyikan sidebar di luar layar (lebar default 300px) */
+  width: 300px;
+  height: 100%;
+  background-color: var(--background-color-card); /* Warna dari tema */
+  box-shadow: -2px 0 10px var(--shadow-color-sidebar); /* Shadow dari tema */
+  transition: right 0.3s ease-in-out;
+  z-index: 1000; /* Pastikan sidebar di atas konten lain */
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  box-sizing: border-box; /* Agar padding tidak menambah lebar total */
+}
+
+.sidebar.open {
+  right: 0; /* Tampilkan sidebar saat class 'open' aktif */
+}
+
+.close-sidebar-button {
+  background: none;
+  border: none;
+  font-size: 2em;
+  color: var(--text-color-icon); /* Warna dari tema */
+  cursor: pointer;
+  align-self: flex-end;
+  margin-bottom: 20px;
+  transition: color 0.2s ease-in-out;
+}
+
+.close-sidebar-button:hover {
+  color: var(--text-color-heading); /* Warna dari tema */
+}
+
+.sidebar-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-nav li {
+  margin-bottom: 15px;
+}
+
+/* Gaya untuk tombol yang terlihat seperti link di sidebar */
+.sidebar-link-button {
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  font-size: 1.2em;
+  padding: 10px;
+  color: var(--text-color-primary); /* Warna dari tema */
+  border-radius: 5px;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.sidebar-link-button:hover {
+  background-color: var(--toggle-container-bg); /* Latar belakang hover dari tema */
+  color: var(--text-color-heading); /* Warna dari tema */
+}
+
+/* Gaya untuk container toggle tema di sidebar */
+.toggle-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: var(--toggle-container-bg); /* Warna dari tema */
+  border-radius: 8px;
+  color: var(--text-color-primary); /* Warna teks dari tema */
+}
+
+.toggle-container span {
+  font-size: 1.1em;
+  margin-right: 10px;
+}
+
+
+/* Responsif: Sidebar lebih kecil di layar sempit */
+@media (max-width: 480px) {
+  .sidebar {
+    width: 250px; /* Lebar sidebar lebih kecil */
+    right: -250px; /* Sesuaikan posisi saat tersembunyi */
+  }
+  .close-sidebar-button {
+    font-size: 1.8em;
+  }
+  .sidebar-link-button, .toggle-container span {
+    font-size: 1.1em;
+  }
+}

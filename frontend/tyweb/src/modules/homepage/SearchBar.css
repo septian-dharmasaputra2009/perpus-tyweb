@@ -1,0 +1,73 @@
+.search-bar-container {
+  display: flex;
+  justify-content: center; /* Memusatkan form pencarian */
+  margin: 30px 20px;
+}
+
+.search-form { /* INI ADALAH WRAPPER UTAMA BARU */
+  position: relative;
+  width: 100%;
+  max-width: 600px; /* Batasi lebar form */
+  border-radius: 25px;
+  box-shadow: 0px 4px 8px var(--shadow-color-input),
+              0px -2px 4px var(--shadow-color-input-inset);
+  background-color: var(--background-color-card);
+  display: flex; /* Untuk menyejajarkan tombol dan input */
+  align-items: center; /* Pusatkan vertikal */
+}
+
+.search-input {
+  width: 100%; /* Agar input mengisi sisa ruang di dalam form */
+  padding: 12px 20px;
+  padding-left: 50px; /* Memberi ruang di kiri untuk ikon */
+  border: none;
+  border-radius: 25px; /* Sesuaikan dengan border-radius form */
+  font-size: 1.1em;
+  outline: none;
+  background-color: transparent;
+  color: var(--text-color-primary);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.search-input::placeholder {
+  color: var(--text-color-placeholder);
+}
+
+.search-input:focus {
+  background-color: var(--background-color);
+  border-color: var(--focus-border-color);
+  box-shadow: 0 0 0 2px var(--focus-ring-color);
+}
+
+.search-button {
+  position: absolute; /* Posisi absolut di dalam .search-form */
+  left: 15px; /* Posisikan di kiri */
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 1.2em;
+  cursor: pointer;
+  color: var(--text-color-icon);
+  transition: color 0.2s ease-in-out;
+  z-index: 1;
+}
+
+.search-button:hover {
+  color: var(--text-color-heading);
+}
+
+/* Responsif untuk layar lebih kecil */
+@media (max-width: 768px) {
+  .search-form { /* Sesuaikan juga media query untuk .search-form */
+    max-width: 90%;
+  }
+  .search-input {
+    padding: 10px 15px;
+    padding-left: 45px;
+  }
+  .search-button {
+    left: 10px;
+    font-size: 1.1em;
+  }
+}

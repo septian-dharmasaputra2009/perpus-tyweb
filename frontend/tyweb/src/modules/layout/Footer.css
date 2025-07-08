@@ -1,0 +1,26 @@
+.footer {
+  background-color: var(--header-footer-bg);
+  color: var(--text-color-tertiary); /* Warna teks yang lebih lembut */
+  text-align: center;
+  padding: 20px;
+  margin-top: auto; /* Mendorong footer ke bawah jika konten kurang */
+  border-top: 1px solid var(--header-footer-border);
+  width: 100%;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.footer-text {
+  font-size: 0.9em;
+  margin: 0;
+}
+
+/* Responsif untuk layar lebih kecil */
+@media (max-width: 768px) {
+  .footer {
+    padding: 15px;
+  }
+  .footer-text {
+    font-size: 0.85em;
+  }
+}

@@ -1,0 +1,136 @@
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--overlay-bg-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1001;
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Kontainer modal itu sendiri (form login) */
+.login-modal-content {
+  background-color: var(--background-color-card);
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 25px var(--shadow-color-card);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  position: relative;
+  animation: slideInTop 0.3s ease-out;
+}
+
+.close-modal-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 1.8em;
+  color: var(--text-color-icon);
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+}
+
+.close-modal-button:hover {
+  color: var(--text-color-heading);
+}
+
+.login-modal-title {
+  font-size: 2em;
+  color: var(--text-color-heading);
+  margin-bottom: 30px;
+}
+
+.login-error {
+  color: #ff4d4d; /* Warna merah untuk pesan error */
+  background-color: #ffe6e6;
+  border: 1px solid #ffcccc;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  font-size: 0.9em;
+}
+
+body.dark .login-error { /* Sesuaikan warna error di dark mode */
+  color: #ffcccc;
+  background-color: #5c0000;
+  border-color: #8c0000;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.95em;
+  color: var(--text-color-primary);
+}
+
+.login-input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1em;
+  color: var(--text-color-primary);
+  background-color: var(--background-color);
+  transition: border-color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  box-sizing: border-box;
+}
+
+.login-input:focus {
+  outline: none;
+  border-color: var(--link-color);
+  box-shadow: 0 0 5px var(--link-color);
+}
+
+.login-button {
+  background-color: var(--link-color);
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 30px;
+  font-size: 1.1em;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.2s ease-in-out;
+  width: 100%;
+}
+
+.login-button:hover {
+  background-color: var(--link-color-hover);
+}
+
+/* Animasi untuk modal */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInTop {
+  from { transform: translateY(-50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Responsif untuk mobile */
+@media (max-width: 600px) {
+  .login-modal-content {
+    padding: 25px;
+    margin: 10px;
+  }
+  .login-modal-title {
+    font-size: 1.8em;
+  }
+  .login-input, .login-button {
+    padding: 10px 15px;
+  }
+}

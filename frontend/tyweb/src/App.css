@@ -1,0 +1,199 @@
+:root {
+  /* Warna Latar Belakang */
+  --background-color: #f0f2f5; /* Background seluruh halaman */
+  --background-color-card: #ffffff; /* Background untuk kartu, container, dll. */
+  --header-footer-bg: #f8f8f8; /* Latar belakang header dan footer */
+  --toggle-container-bg: #f0f0f0; /* Latar belakang container toggle di sidebar */
+
+  /* Warna Teks */
+  --text-color-primary: #333; /* Teks utama */
+  --text-color-secondary: #555; /* Teks sekunder (misal penulis) */
+  --text-color-tertiary: #777; /* Teks tersier (misal meta info) */
+  --text-color-heading: #222; /* Judul-judul */
+  --text-color-placeholder: #999; /* Warna teks placeholder input */
+  --text-color-icon: #888; /* Warna ikon umum (hamburger, search) */
+
+  /* Warna Border & Link */
+  --border-color: #eee;
+  --link-color: #007bff; /* Warna link standar */
+  --link-color-hover: #0056b3; /* Warna link saat hover */
+  --primary-color-light: #aec6ed; /* Contoh warna aksen terang (untuk garis bawah) */
+
+  /* Shadow & Efek */
+  --shadow-color-card: rgba(0,0,0,0.08); /* Shadow untuk kartu */
+  --shadow-color-input: rgba(0,0,0,0.05); /* Shadow untuk input */
+  --shadow-color-input-focus: rgba(0,0,0,0.1); /* Shadow input saat fokus */
+  --shadow-color-input-inset: rgba(255, 255, 255, 0.5); /* Highlight emboss untuk input */
+  --shadow-color-sidebar: rgba(0,0,0,0.1); /* Shadow sidebar */
+  --overlay-bg-color: rgba(0, 0, 0, 0.5); /* Warna overlay sidebar */
+
+  /* Warna Toggle Switch */
+  --toggle-slider-bg-off: #ccc;
+  --toggle-slider-bg-on: #2196F3;
+  --toggle-handle-bg: white;
+  --toggle-icon-light: #fdd835;
+  --toggle-icon-dark: #7b1fa2;
+
+  /* Warna Feedback Message */
+  --color-success-bg: #d1fae5; /* hijau muda */
+  --color-success-text: #065f46; /* hijau gelap */
+  --color-error-bg: #fee2e2; /* merah muda */
+  --color-error-text: #991b1b; /* merah gelap */
+
+  /* Warna Tombol Baru */
+  --color-btn-text: #ffffff; /* Warna teks default tombol */
+  --color-btn-primary-bg: #3b82f6; /* Warna biru primary */
+  --color-btn-primary-hover-bg: #2563eb; /* Biru lebih gelap saat hover */
+  --color-btn-secondary-bg: #e5e7eb; /* Abu-abu terang */
+  --color-btn-secondary-hover-bg: #d1d5db; /* Abu-abu lebih gelap saat hover */
+  --color-btn-remove-bg: #ef4444; /* Merah untuk remove */
+  --color-btn-remove-hover-bg: #dc2626; /* Merah lebih gelap saat hover */
+
+  /* Warna Fokus (untuk border dan shadow focus) */
+  --focus-ring-color: rgba(59, 130, 246, 0.5); /* Biru semi-transparan */
+  --focus-border-color: #3b82f6;
+}
+
+/* === 2. Override Variabel untuk Dark Mode === */
+body.dark {
+  /* Warna Latar Belakang */
+  --background-color: #282c34;
+  --background-color-card: #3a3f47;
+  --header-footer-bg: #33373e;
+  --toggle-container-bg: #4a4f57;
+
+  /* Warna Teks */
+  --text-color-primary: #e0e0e0;
+  --text-color-secondary: #c0c0c0;
+  --text-color-tertiary: #a0a0a0;
+  --text-color-heading: #f0f0f0;
+  --text-color-placeholder: #a0a0a0;
+  --text-color-icon: #e0e0e0;
+
+  /* Warna Border & Link */
+  --border-color: #444;
+  --link-color: #87CEEB;
+  --link-color-hover: #ADD8E6;
+  --primary-color-light: #5a7ea8;
+
+  /* Shadow & Efek */
+  --shadow-color-card: rgba(0, 0, 0, 0.3);
+  --shadow-color-input: rgba(0, 0, 0, 0.3);
+  --shadow-color-input-focus: rgba(0, 0, 0, 0.4);
+  --shadow-color-input-inset: rgba(60, 60, 60, 0.5);
+  --shadow-color-sidebar: rgba(0,0,0,0.5);
+  --overlay-bg-color: rgba(0, 0, 0, 0.7);
+
+  /* Warna Toggle Switch (sesuaikan untuk dark mode) */
+  --toggle-slider-bg-off: #555;
+  --toggle-slider-bg-on: #4a4f57;
+  --toggle-handle-bg: #eee;
+  --toggle-icon-light: #fdd835;
+  --toggle-icon-dark: #7b1fa2;
+
+  /* Warna Feedback Message (Dark Mode) */
+  --color-success-bg: #14532d;
+  --color-success-text: #d1fae5;
+  --color-error-bg: #7f1d1d;
+  --color-error-text: #fecaca;
+
+  /* Warna Tombol Baru (Dark Mode) */
+  --color-btn-text: #e0e0e0;
+  --color-btn-primary-bg: #60a5fa;
+  --color-btn-primary-hover-bg: #3b82f6;
+  --color-btn-secondary-bg: #4b5563;
+  --color-btn-secondary-hover-bg: #6b7280;
+  --color-btn-remove-bg: #dc2626;
+  --color-btn-remove-hover-bg: #b91c1c;
+
+  /* Warna Fokus (Dark Mode) */
+  --focus-ring-color: rgba(96, 165, 250, 0.5);
+  --focus-border-color: #60a5fa;
+}
+
+/* === 3. Gaya Dasar Body & App Container === */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  background-color: var(--background-color);
+  color: var(--text-color-primary);
+  line-height: 1.6;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* === 4. Gaya Umum untuk Elemen HTML yang Akan Menggunakan Tema === */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-color-heading);
+  transition: color 0.3s ease-in-out;
+}
+
+p {
+  color: var(--text-color-primary);
+  transition: color 0.3s ease-in-out;
+}
+
+/* === 5. Gaya Overlay Sidebar === */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--overlay-bg-color);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* === 6. Gaya Scrollbar === */
+/* Scrollbar untuk Webkit (Chrome, Safari) */
+body::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--background-color);
+  border-radius: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: #aaa;
+}
+
+/* Dark mode scrollbar */
+body.dark::-webkit-scrollbar-thumb {
+  background: #666;
+}
+body.dark::-webkit-scrollbar-track {
+  background: #333;
+}
+body.dark::-webkit-scrollbar-thumb:hover {
+  background: #888;
+}
+/* Untuk Firefox */
+body {
+  scrollbar-width: thin;
+  scrollbar-color: var(--text-color-tertiary) var(--background-color);
+}

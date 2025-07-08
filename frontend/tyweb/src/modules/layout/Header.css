@@ -1,0 +1,83 @@
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: var(--header-footer-bg);
+  border-bottom: 1px solid var(--header-footer-border);
+  color: var(--text-color-primary);
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+  position: sticky; /* Agar header tetap di atas saat scroll */
+  top: 0;
+  z-index: 100; /* Pastikan di atas konten lain tapi di bawah sidebar/modal */
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.menu-button {
+  background: none;
+  border: none;
+  font-size: 2em;
+  cursor: pointer;
+  color: var(--text-color-icon);
+  padding: 5px;
+  /* HAPUS ATAU KOMEN BARIS INI: margin-right: 15px; */
+  transition: color 0.2s ease-in-out;
+}
+
+.menu-button:hover {
+  color: var(--text-color-heading);
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--text-color-heading);
+  /* margin-left: 20px; Jika tidak ada menu button, bisa diaktifkan */
+}
+
+.react-logo {
+  height: 2em; /* Ukuran tinggi logo, sesuaikan agar sejajar dengan teks */
+  width: auto;
+  margin-right: 10px; /* Jarak antara logo dan teks */
+  /* Animasi berputar */
+  animation: react-logo-spin infinite 10s linear; /* Nama, durasi, kecepatan, ulangi terus */
+}
+
+.logo-text {
+  font-size: 1.5em; /* Ukuran font teks Tywebs */
+  font-weight: bold;
+  color: var(--text-color-heading); /* Warna teks juga ikut tema */
+  margin-top: 0; /* Hilangkan margin default h1 */
+  margin-bottom: 0;
+}
+
+/* Definisi animasi putar */
+@keyframes react-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsif untuk mobile */
+@media (max-width: 768px) {
+  .app-header {
+    padding: 10px 15px;
+  }
+  .menu-button {
+    font-size: 1.8em;
+  }
+  .logo-text {
+    font-size: 1.3em;
+  }
+  .react-logo {
+    height: 1.8em;
+  }
+}
