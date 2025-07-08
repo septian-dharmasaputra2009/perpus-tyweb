@@ -1,0 +1,43 @@
+# Operating System
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.pyc
+*.pyd
+*.pyo
+.Python
+*.log
+*.sqlite3 # Untuk db.sqlite3
+/backend/venv/ 
+.pytest_cache/
+.coverage
+/htmlcov/
+
+# Django
+/backend/media/   
+/backend/static/ 
+
+# Node.js / Frontend (tyweb)
+/frontend/tyweb/node_modules/ 
+/frontend/tyweb/npm-debug.log*
+/frontend/tyweb/yarn-debug.log*
+/frontend/tyweb/yarn-error.log*
+/frontend/tyweb/coverage/     
+/frontend/tyweb/.parcel-cache/ 
+/frontend/tyweb/.next/        
+
+# --- PENTING UNTUK DEPLOYMENT KE PYTHONANYWHERE ---
+# KITA PERLU FOLDER 'build/' HASIL KOMPILASI REACT TER-COMMIT KE GITHUB
+# KARENA DJANGO AKAN MELAYANI FILE STATIS DARI SANA.
+# JADI, JANGAN MASUKKAN /frontend/tyweb/build/ DI SINI.
+# Jika Anda mendeploy React secara terpisah (misal Netlify/Vercel), Anda AKAN memasukkannya di sini.
+/frontend/tyweb/dist/ 
+
+# IDE (Integrated Development Environment)
+.vscode/          
+.idea/            
+
+# Environment Variables
+.env              
