@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import './BookReadPage.css'; // Pastikan file CSS ini ada dan sesuai
 // Import komponen dari react-pdf
 import { Document, Page, pdfjs } from 'react-pdf';
+import { API_BASE_URL } from '../../config'
 
 // PENTING: Konfigurasi sumber worker untuk react-pdf
 // Ini adalah cara PALING ANDAL dengan menentukan versi pdfjs-dist yang stabil dari unpkg.com

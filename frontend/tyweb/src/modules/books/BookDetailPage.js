@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import './BookDetailPage.css';
+import { API_BASE_URL } from '../../config'
 
 const BookDetailPage = () => {
   const { id } = useParams(); // Mengambil ID buku dari URL

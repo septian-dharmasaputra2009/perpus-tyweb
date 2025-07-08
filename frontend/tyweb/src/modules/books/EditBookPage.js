@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import './EditBookPage.css'; // Pastikan file CSS ini ada di folder yang sama
+import { API_BASE_URL } from '../../config'
 
 const EditBookPage = () => {
   const { id } = useParams(); // Mengambil ID buku dari URL
