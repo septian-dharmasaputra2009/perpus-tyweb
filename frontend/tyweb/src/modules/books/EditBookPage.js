@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import './EditBookPage.css'; // Pastikan file CSS ini ada di folder yang sama
+import { API_BASE_URL } from '../../config'
 
 const EditBookPage = () => {
   const { id } = useParams(); // Mengambil ID buku dari URL
@@ -26,7 +27,7 @@ const EditBookPage = () => {
       setError(null);
       setFeedbackMessage(''); // Reset feedback message on new fetch
       try {
-        const response = await fetch(`http://127.0.0.1:8000/api/books/${id}/`);
+        const response = await fetch(`${API_BASE_URL}/api/books/${id}/`);
         if (!response.ok) {
           if (response.status === 404) {
             throw new Error("Buku tidak ditemukan.");
@@ -134,7 +135,7 @@ const EditBookPage = () => {
     console.log('DEBUG EditPage: Data yang akan dikirim untuk update:', dataToSubmit); // Debugging data kirim
 
     try {
-      const response = await fetch(`http://127.0.0.1:8000/api/books/${id}/`, { // <-- URL API PUT/PATCH Buku
+      const response = await fetch(`${API_BASE_URL}/api/books/${id}/`, { // <-- URL API PUT/PATCH Buku
         method: 'PUT', // Atau 'PATCH' jika hanya ingin mengirim perubahan parsial
         headers: {
           'Content-Type': 'application/json',
@@ -177,7 +178,7 @@ const EditBookPage = () => {
     setIsSuccess(false);
 
     try {
-      const response = await fetch(`http://127.0.0.1:8000/api/books/${id}/`, {
+      const response = await fetch(`${API_BASE_URL}/api/books/${id}/`, {
         method: 'DELETE',
         // headers: { 'Authorization': `Bearer ${token}` }
       });

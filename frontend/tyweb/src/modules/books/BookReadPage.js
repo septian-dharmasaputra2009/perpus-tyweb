@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import './BookReadPage.css'; // Pastikan file CSS ini ada dan sesuai
 // Import komponen dari react-pdf
 import { Document, Page, pdfjs } from 'react-pdf';
+import { API_BASE_URL } from '../../config'
 
 // PENTING: Konfigurasi sumber worker untuk react-pdf
 // Ini adalah cara PALING ANDAL dengan menentukan versi pdfjs-dist yang stabil dari unpkg.com
@@ -38,7 +39,7 @@ const BookReadPage = () => {
           throw new Error("Nomor halaman awal di URL tidak dapat diurai sebagai angka.");
         }
 
-        const response = await fetch(`http://127.0.0.1:8000/api/books/${bookId}/`);
+        const response = await fetch(`${API_BASE_URL}/api/books/${bookId}/`);
 
         if (!response.ok) {
           if (response.status === 404) {

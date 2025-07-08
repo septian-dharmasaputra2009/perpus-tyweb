@@ -1,12 +1,13 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
 
 import axios from 'axios';
+import { API_BASE_URL } from '../../config'
 
 // Buat Context
 export const AuthContext = createContext();
 
+
 // Base URL API Django Anda
-const API_BASE_URL = 'http://127.0.0.1:8000/api';
 
 export const AuthProvider = ({ children }) => {
   const [authToken, setAuthToken] = useState(null); // Menyimpan token akses dan refresh

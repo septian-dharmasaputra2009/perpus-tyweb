@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import './BookDetailPage.css';
+import { API_BASE_URL } from '../../config'
 
 const BookDetailPage = () => {
   const { id } = useParams(); // Mengambil ID buku dari URL
@@ -17,7 +18,7 @@ const BookDetailPage = () => {
       setError(null);
       try {
         // Panggilan API ke Django untuk mengambil detail buku berdasarkan ID
-        const response = await fetch(`http://127.0.0.1:8000/api/books/${id}/`);
+        const response = await fetch(`${API_BASE_URL}/api/books/${id}/`);
 
         if (!response.ok) {
           if (response.status === 404) {

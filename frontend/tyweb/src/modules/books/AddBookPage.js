@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate jika ingin redirect setelah tambah buku
 import './AddBookPage.css'; // Pastikan file CSS ini ada di folder yang sama
+import { API_BASE_URL } from '../../config'
 
 const AddBookPage = () => {
   const navigate = useNavigate(); // Inisialisasi useNavigate
@@ -88,7 +89,7 @@ const AddBookPage = () => {
     console.log('Data yang akan dikirim ke Django:', dataToSubmit);
 
     try {
-      const response = await fetch('http://127.0.0.1:8000/api/books/', { // <-- URL API POST Buku
+      const response = await fetch('${API_BASE_URL}/api/books/', { // <-- URL API POST Buku
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
